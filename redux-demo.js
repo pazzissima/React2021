@@ -16,3 +16,6 @@ const counterSubscriber = () => {
 
 //Here we just point to counterSubscriber, not execute it. It will be executed by Reduc
 store.subscribe(counterSubscriber);
+
+//Dispatch is a method that dispatches an action. An action is a JS object
+store.dispatch({ type: 'increment'});
