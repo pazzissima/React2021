@@ -6,6 +6,7 @@ const counterSlice = createSlice({
 	name: 'counter',
 	initialState: initialState,
 	reducers: {
+		//These are unique action identifiers
 		increment(state) {
 			//!!! Redux toolkit uses a package that will detect cases like this and 
 			//clone state instead of changing the existing one
@@ -16,17 +17,18 @@ const counterSlice = createSlice({
 			state.counter--;
 		},
 		increase(state, action) {
-			state.counter = state.counter + action.amount;
+			//payload is the name of a variable that will hold any extra data you might be dispatching
+			state.counter = state.counter + action.payload;
 		},
 		toggleCounter(state) {
 			state.showCounter = !state.showCounter;
 		}
 	}
-})
-
+});
 
 const store = configureStore({
 	reducer: counterSlice.reducer
 })
 
+export const counterActions = counterSlice.actions;
 export default store;
